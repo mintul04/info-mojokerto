@@ -4,17 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BeritaKini - Portal Berita Terkini Indonesia</title>
+    <title>Info Mojokerto - Beranda</title>
 
     <!-- Bootstrap 5 CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ asset('bootstrap/bootstrap.css') }}" rel="stylesheet">
     <!-- Bootstrap Icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="{{ asset('assets/extensions/bootstrap-icons/font/bootstrap-icons.min.css') }}">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 
     <style>
-        :root {
+        /* :root {
             --primary-color: #BBDCE5;
             --secondary-color: #10B981;
             --accent-color: #0EA5E9;
@@ -22,7 +22,7 @@
             --light-gray: #F1F5F9;
             --white: #FFFFFF;
             --border-color: #E2E8F0;
-        }
+        } */
 
         * {
             margin: 0;
@@ -35,43 +35,6 @@
             line-height: 1.6;
             color: var(--dark-gray);
             background-color: var(--white);
-        }
-
-        /* Custom Navbar Styles */
-        .navbar-custom {
-            background: linear-gradient(135deg, var(--primary-color) 0%, rgba(187, 220, 229, 0.9) 100%);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--border-color);
-            padding: 1rem 0;
-            transition: all 0.3s ease;
-        }
-
-        .navbar-custom.scrolled {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px);
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .navbar-brand {
-            font-weight: 700;
-            font-size: 1.8rem;
-            color: var(--dark-gray) !important;
-            text-decoration: none;
-        }
-
-        .navbar-nav .nav-link {
-            color: var(--dark-gray) !important;
-            font-weight: 500;
-            margin: 0 0.5rem;
-            padding: 0.5rem 1rem !important;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-        }
-
-        .navbar-nav .nav-link:hover {
-            background-color: var(--secondary-color);
-            color: var(--white) !important;
-            transform: translateY(-2px);
         }
 
         /* Hero Section */
@@ -91,6 +54,16 @@
             bottom: 0;
             background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse"><path d="M 50 0 L 0 0 0 50" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grid)"/></svg>');
             opacity: 0.3;
+        }
+
+        .img-hero {
+            max-width: 100%;
+            height: auto;
+            border-radius: 15px;
+            transition: transform 0.3s ease;
+            transform: translateY(20px);
+            opacity: 0;
+            animation: fadeInUp 0.6s forwards;
         }
 
         .hero-content {
@@ -252,48 +225,6 @@
             margin-right: 1rem;
         }
 
-        /* Footer */
-        .footer {
-            background: linear-gradient(135deg, var(--dark-gray) 0%, #334155 100%);
-            color: var(--white);
-            padding: 3rem 0 1rem;
-        }
-
-        .footer h5 {
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-            font-weight: 700;
-        }
-
-        .footer a {
-            color: #CBD5E1;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .footer a:hover {
-            color: var(--primary-color);
-        }
-
-        .social-icons a {
-            display: inline-block;
-            width: 40px;
-            height: 40px;
-            background: var(--primary-color);
-            color: var(--dark-gray);
-            text-align: center;
-            line-height: 40px;
-            border-radius: 50%;
-            margin-right: 0.5rem;
-            transition: all 0.3s ease;
-        }
-
-        .social-icons a:hover {
-            background: var(--secondary-color);
-            color: var(--white);
-            transform: translateY(-3px);
-        }
-
         /* Responsive */
         @media (max-width: 768px) {
             .hero-title {
@@ -346,43 +277,11 @@
 </head>
 
 <body>
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-custom fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="#"><i class="bi bi-newspaper me-2"></i>BeritaKini</a>
-
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#home">Beranda</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#nasional">Nasional</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#internasional">Internasional</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#ekonomi">Ekonomi</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#teknologi">Teknologi</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#olahraga">Olahraga</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    @include('templates.partials.navbar')
 
     <!-- Hero Section -->
     <section id="home" class="hero-section">
-        <div class="container">
+        <div class="container" style="margin-top: 100px">
             <div class="row align-items-center">
                 <div class="col-lg-6">
                     <div class="hero-content fade-in-up">
@@ -396,8 +295,7 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="text-center">
-                        <img src="/placeholder.svg?height=400&width=500" alt="News Illustration"
-                            class="img-fluid rounded-3 shadow-lg">
+                        <img src="{{ asset('image/undraw_personal-information.png') }}" alt="News Illustration" class="img-fluid rounded img-hero">
                     </div>
                 </div>
             </div>
@@ -415,18 +313,21 @@
             </div>
 
             <div class="row">
+                @php
+                    $item = $news->first();
+                @endphp
                 <div class="col-lg-8 mb-4">
                     <div class="featured-news">
-                        <img src="/placeholder.svg?height=300&width=800" alt="Berita Utama">
+                        <img src="{{ asset('uploads/news/' . $item->gambar) }}" alt="Berita Utama">
                         <div class="featured-content">
-                            <span class="news-category">Politik</span>
-                            <h3 class="featured-title">Pemerintah Luncurkan Program Digitalisasi UMKM Nasional</h3>
-                            <p class="news-excerpt">Program ambisius pemerintah untuk mendorong transformasi digital
-                                UMKM di seluruh Indonesia telah resmi diluncurkan. Program ini diharapkan dapat
-                                meningkatkan daya saing ekonomi nasional di era digital.</p>
+                            <span class="news-category">{{ $item->kategori->nama }}</span>
+                            <a href="{{ Route('detail-berita', $item->id) }}" class="text-decoration-none">
+                                <h3 class="featured-title">{{ $item->judul }}</h3>
+                            </a>
+                            <p class="news-excerpt">{{ Str::limit($item->konten, 400) }}</p>
                             <div class="news-meta">
-                                <span><i class="bi bi-person me-1"></i>Admin BeritaKini</span>
-                                <span><i class="bi bi-clock me-1"></i>2 jam yang lalu</span>
+                                <span><i class="bi bi-person me-1"></i>Admin InfoMojokerto</span>
+                                <span><i class="bi bi-clock me-1"></i>{{ $item->waktu->diffForHumans() }}</span>
                             </div>
                         </div>
                     </div>
@@ -435,37 +336,18 @@
                 <div class="col-lg-4">
                     <h4 class="fw-bold mb-3">Trending Hari Ini</h4>
 
-                    <div class="trending-item">
-                        <div class="trending-number">1</div>
-                        <div>
-                            <h6 class="mb-1">Ekonomi Indonesia Tumbuh 5.2%</h6>
-                            <small class="text-muted">1 jam yang lalu</small>
-                        </div>
-                    </div>
+                    @foreach ($news->take(4) as $item)
+                        <a href="{{ Route('detail-berita', $item->id) }}" class="text-decoration-none">
+                            <div class="trending-item">
+                                <div class="trending-number">{{ $loop->iteration }}</div>
+                                <div>
+                                    <h6 class="mb-1">{{ Str::limit($item->judul, 30) }}</h6>
+                                    <small class="text-muted">{{ $item->waktu->diffForHumans() }}</small>
+                                </div>
+                            </div>
+                        </a>
+                    @endforeach
 
-                    <div class="trending-item">
-                        <div class="trending-number">2</div>
-                        <div>
-                            <h6 class="mb-1">Teknologi AI Terbaru dari Startup Lokal</h6>
-                            <small class="text-muted">3 jam yang lalu</small>
-                        </div>
-                    </div>
-
-                    <div class="trending-item">
-                        <div class="trending-number">3</div>
-                        <div>
-                            <h6 class="mb-1">Timnas Indonesia Menang Telak</h6>
-                            <small class="text-muted">5 jam yang lalu</small>
-                        </div>
-                    </div>
-
-                    <div class="trending-item">
-                        <div class="trending-number">4</div>
-                        <div>
-                            <h6 class="mb-1">Cuaca Ekstrem di Beberapa Daerah</h6>
-                            <small class="text-muted">6 jam yang lalu</small>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -482,101 +364,24 @@
             </div>
 
             <div class="row">
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="news-card">
-                        <img src="/placeholder.svg?height=200&width=400" alt="Teknologi">
-                        <div class="news-card-body">
-                            <span class="news-category">Teknologi</span>
-                            <h5 class="news-title">Startup Indonesia Raih Pendanaan $50 Juta</h5>
-                            <p class="news-excerpt">Perusahaan teknologi finansial asal Indonesia berhasil meraih
-                                pendanaan seri B senilai $50 juta dari investor internasional.</p>
-                            <div class="news-meta">
-                                <span><i class="bi bi-eye me-1"></i>1.2k</span>
-                                <span><i class="bi bi-clock me-1"></i>4 jam lalu</span>
+                @foreach ($news->take(6) as $item)
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="news-card">
+                            <img src="{{ asset('uploads/news/' . $item->gambar) }}" alt="{{ $item->kategori->nama }}">
+                            <div class="news-card-body">
+                                <span class="news-category">{{ $item->kategori->nama }}</span>
+                                <h5 class="news-title">{{ Str::limit($item->judul, 55) }}</h5>
+                                <p class="news-excerpt">{{ Str::limit($item->konten, 130) }}</p>
+                                <div class="news-meta">
+                                    <span><i class="bi bi-eye me-1"></i>{{ rand(1, 10) }}k</span>
+                                    <span><i class="bi bi-clock me-1"></i>{{ $item->waktu->diffForHumans() }}</span>
+                                </div>
+                                <a href="{{ route('detail-berita', $item->id) }}" class="btn btn-primary mt-2">Baca</a>
                             </div>
                         </div>
                     </div>
-                </div>
+                @endforeach
 
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="news-card">
-                        <img src="/placeholder.svg?height=200&width=400" alt="Olahraga">
-                        <div class="news-card-body">
-                            <span class="news-category">Olahraga</span>
-                            <h5 class="news-title">Timnas U-23 Lolos ke Final SEA Games</h5>
-                            <p class="news-excerpt">Prestasi membanggakan timnas U-23 Indonesia yang berhasil
-                                mengalahkan Thailand dengan skor 2-1 di semifinal.</p>
-                            <div class="news-meta">
-                                <span><i class="bi bi-eye me-1"></i>2.5k</span>
-                                <span><i class="bi bi-clock me-1"></i>6 jam lalu</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="news-card">
-                        <img src="/placeholder.svg?height=200&width=400" alt="Ekonomi">
-                        <div class="news-card-body">
-                            <span class="news-category">Ekonomi</span>
-                            <h5 class="news-title">IHSG Menguat di Atas Level 7.000</h5>
-                            <p class="news-excerpt">Indeks Harga Saham Gabungan (IHSG) ditutup menguat 1.2% ke level
-                                7.085 didorong sentimen positif dari sektor perbankan.</p>
-                            <div class="news-meta">
-                                <span><i class="bi bi-eye me-1"></i>890</span>
-                                <span><i class="bi bi-clock me-1"></i>8 jam lalu</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="news-card">
-                        <img src="/placeholder.svg?height=200&width=400" alt="Budaya">
-                        <div class="news-card-body">
-                            <span class="news-category">Budaya</span>
-                            <h5 class="news-title">Festival Budaya Nusantara Digelar di Jakarta</h5>
-                            <p class="news-excerpt">Pameran budaya terbesar tahun ini menampilkan keragaman seni dan
-                                tradisi dari 34 provinsi di Indonesia.</p>
-                            <div class="news-meta">
-                                <span><i class="bi bi-eye me-1"></i>1.8k</span>
-                                <span><i class="bi bi-clock me-1"></i>10 jam lalu</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="news-card">
-                        <img src="/placeholder.svg?height=200&width=400" alt="Lingkungan">
-                        <div class="news-card-body">
-                            <span class="news-category">Lingkungan</span>
-                            <h5 class="news-title">Program Energi Terbarukan Capai Target 23%</h5>
-                            <p class="news-excerpt">Indonesia berhasil mencapai target bauran energi terbarukan 23%
-                                lebih cepat dari jadwal yang telah ditetapkan.</p>
-                            <div class="news-meta">
-                                <span><i class="bi bi-eye me-1"></i>1.1k</span>
-                                <span><i class="bi bi-clock me-1"></i>12 jam lalu</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="news-card">
-                        <img src="/placeholder.svg?height=200&width=400" alt="Pendidikan">
-                        <div class="news-card-body">
-                            <span class="news-category">Pendidikan</span>
-                            <h5 class="news-title">Digitalisasi Sekolah Mencapai 75% Nasional</h5>
-                            <p class="news-excerpt">Program digitalisasi pendidikan pemerintah telah mencapai 75%
-                                sekolah di seluruh Indonesia dengan fasilitas internet dan perangkat digital.</p>
-                            <div class="news-meta">
-                                <span><i class="bi bi-eye me-1"></i>950</span>
-                                <span><i class="bi bi-clock me-1"></i>14 jam lalu</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
 
             <div class="text-center mt-4">
@@ -588,83 +393,10 @@
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4 mb-4">
-                    <h5><i class="bi bi-newspaper me-2"></i>BeritaKini</h5>
-                    <p>Portal berita terpercaya yang menyajikan informasi terkini dari Indonesia dan dunia dengan akurat
-                        dan objektif.</p>
-                    <div class="social-icons">
-                        <a href="#"><i class="bi bi-facebook"></i></a>
-                        <a href="#"><i class="bi bi-twitter"></i></a>
-                        <a href="#"><i class="bi bi-instagram"></i></a>
-                        <a href="#"><i class="bi bi-youtube"></i></a>
-                        <a href="#"><i class="bi bi-linkedin"></i></a>
-                    </div>
-                </div>
-
-                <div class="col-lg-2 col-md-6 mb-4">
-                    <h5>Kategori</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="#">Nasional</a></li>
-                        <li><a href="#">Internasional</a></li>
-                        <li><a href="#">Ekonomi</a></li>
-                        <li><a href="#">Teknologi</a></li>
-                        <li><a href="#">Olahraga</a></li>
-                    </ul>
-                </div>
-
-                <div class="col-lg-2 col-md-6 mb-4">
-                    <h5>Layanan</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="#">Newsletter</a></li>
-                        <li><a href="#">RSS Feed</a></li>
-                        <li><a href="#">Mobile App</a></li>
-                        <li><a href="#">Arsip Berita</a></li>
-                        <li><a href="#">Live TV</a></li>
-                    </ul>
-                </div>
-
-                <div class="col-lg-2 col-md-6 mb-4">
-                    <h5>Perusahaan</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="#">Tentang Kami</a></li>
-                        <li><a href="#">Karir</a></li>
-                        <li><a href="#">Kontak</a></li>
-                        <li><a href="#">Advertorial</a></li>
-                        <li><a href="#">Kemitraan</a></li>
-                    </ul>
-                </div>
-
-                <div class="col-lg-2 col-md-6 mb-4">
-                    <h5>Legal</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="#">Kebijakan Privasi</a></li>
-                        <li><a href="#">Syarat & Ketentuan</a></li>
-                        <li><a href="#">Disclaimer</a></li>
-                        <li><a href="#">Kode Etik</a></li>
-                        <li><a href="#">DMCA</a></li>
-                    </ul>
-                </div>
-            </div>
-
-            <hr class="my-4" style="border-color: #64748B;">
-
-            <div class="row align-items-center">
-                <div class="col-md-6">
-                    <p class="mb-0">&copy; 2024 BeritaKini. Seluruh hak cipta dilindungi.</p>
-                </div>
-                <div class="col-md-6 text-md-end">
-                    <p class="mb-0">Dibuat dengan <i class="bi bi-heart-fill text-danger"></i> untuk Indonesia</p>
-                </div>
-            </div>
-        </div>
-    </footer>
+    @include('templates.partials.footer')
 
     <!-- Bootstrap 5 JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ asset('bootstrap/bootstrap.js') }}"></script>
 
     <script>
         // Navbar scroll effect
